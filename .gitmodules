@@ -1,0 +1,15 @@
+[submodule "smart_ptr"]
+	path = smart_ptr
+	url = https://github.com/steinwurf-boost/smart_ptr.git
+[submodule "config"]
+	path = config
+	url = https://github.com/steinwurf-boost/config.git
+[submodule "core"]
+	path = core
+	url = https://github.com/steinwurf-boost/core.git
+[submodule "utility"]
+	path = utility
+	url = https://github.com/steinwurf-boost/utility.git
+[submodule "exception"]
+	path = exception
+	url = https://github.com/steinwurf-boost/exception.git
