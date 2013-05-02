@@ -26,11 +26,11 @@
 #include <gtest/gtest.h>
 
 #include <boost/signals2.hpp>
-#include <boost/shared_ptr.hpp>
+#include <boost/bind.hpp>
 
 namespace bs2 = boost::signals2;
 
-struct test_signal
+struct signal_emitter
 {
     typedef bs2::signal<void ()> void_signal;
 
@@ -46,14 +46,13 @@ struct test_signal
 
     // The signal
     void_signal m_signal;
-
 };
 
 
-struct test_target
+struct signal_receiver
 {
-    test_target() :
-        m_one(0)
+    signal_receiver() :
+        m_one(0), m_two(0)
     {
     }
 
@@ -62,21 +61,30 @@ struct test_target
         m_one++;
     }
 
+    void call_two()
+    {
+        m_two++;
+    }
+
     // To check if all callbacks were invoked
     int m_one;
+    int m_two;
 };
 
 TEST(TestBoostSignals, connect)
 {
-    test_signal emitter;
-    test_target target;
+    signal_emitter emitter;
+    signal_receiver recv;
 
     emitter.on_event(
-        boost::bind(&test_target::call_one, &target));
+        boost::bind(&signal_receiver::call_one, &recv));
+    emitter.on_event(
+        boost::bind(&signal_receiver::call_two, &recv));
 
     emitter.raise_event();
 
-    EXPECT_EQ(1, target.m_one);
+    EXPECT_EQ(1, recv.m_one);
+    EXPECT_EQ(1, recv.m_two);
 }
 
 
