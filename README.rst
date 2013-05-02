@@ -11,8 +11,8 @@ We use Waf to cross-compile Boost for the different platforms
 we support. For that reason we provide the Waf and wscript files
 needed to build the Boost libraries.
 
-This is in no way a complete build system for Boost, if somebody 
-has time we would happy to accept improvements.
+This is in no way a complete build system for Boost, we would be happy to 
+accept improvements if somebody has time.
 
 Dependencies
 ------------
@@ -20,7 +20,7 @@ Dependencies
 1. Git: A usable git client installed (see the "Set Up Git" guide at 
    the `github help`_ pages)
 2. Python: To use Waf you need to install Python version 2.7 or newer. 
-3. C++ compiler: To build the Boost libraries you need C++11 compiler. 
+3. C++ compiler: To build the Boost libraries you need a C++11 compiler. 
 
 .. _github help: http://help.github.com/
 
@@ -28,7 +28,7 @@ Usage
 -----
 
 Download the source from github by cloning the repository. To do this run
-from your terminal (Linux) or  your git bash terminal (Windows)::
+from your terminal (Linux) or your Git Bash terminal (Windows)::
   
     git clone https://github.com/steinwurf/external-boost-modules.git
 

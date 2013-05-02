@@ -1,15 +1,108 @@
 [submodule "smart_ptr"]
 	path = smart_ptr
-	url = https://github.com/steinwurf-boost/smart_ptr.git
+	url = https://github.com/boostorg/smart_ptr.git
 [submodule "config"]
 	path = config
-	url = https://github.com/steinwurf-boost/config.git
+	url = https://github.com/boostorg/config.git
 [submodule "core"]
 	path = core
-	url = https://github.com/steinwurf-boost/core.git
+	url = https://github.com/boostorg/core.git
 [submodule "utility"]
 	path = utility
-	url = https://github.com/steinwurf-boost/utility.git
+	url = https://github.com/boostorg/utility.git
 [submodule "exception"]
 	path = exception
-	url = https://github.com/steinwurf-boost/exception.git
+	url = https://github.com/boostorg/exception.git
+[submodule "system"]
+	path = system
+	url = https://github.com/boostorg/system.git
+[submodule "type_traits"]
+	path = type_traits
+	url = https://github.com/boostorg/type_traits.git
+[submodule "static_assert"]
+	path = static_assert
+	url = https://github.com/boostorg/static_assert.git
+[submodule "integer"]
+	path = integer
+	url = https://github.com/boostorg/integer.git
+[submodule "mpl"]
+	path = mpl
+	url = https://github.com/boostorg/mpl.git
+[submodule "bind"]
+	path = bind
+	url = https://github.com/boostorg/bind.git
+[submodule "function"]
+	path = function
+	url = https://github.com/boostorg/function.git
+[submodule "preprocessor"]
+	path = preprocessor
+	url = https://github.com/boostorg/preprocessor.git
+[submodule "iterator"]
+	path = iterator
+	url = https://github.com/boostorg/iterator.git
+[submodule "chrono"]
+	path = chrono
+	url = https://github.com/boostorg/chrono.git
+[submodule "thread"]
+	path = thread
+	url = https://github.com/boostorg/thread.git
+[submodule "signals2"]
+	path = signals2
+	url = https://github.com/boostorg/signals2.git
+[submodule "date_time"]
+	path = date_time
+	url = https://github.com/boostorg/date_time.git
+[submodule "optional"]
+	path = optional
+	url = https://github.com/boostorg/optional.git
+[submodule "functional"]
+	path = functional
+	url = https://github.com/boostorg/functional.git
+[submodule "ratio"]
+	path = ratio
+	url = https://github.com/boostorg/ratio.git
+[submodule "io"]
+	path = io
+	url = https://github.com/boostorg/io.git
+[submodule "move"]
+	path = move
+	url = https://github.com/boostorg/move.git
+[submodule "timer"]
+	path = timer
+	url = https://github.com/boostorg/timer.git
+[submodule "asio"]
+	path = asio
+	url = https://github.com/boostorg/asio.git
+[submodule "math"]
+	path = math
+	url = https://github.com/boostorg/math.git
+[submodule "functional_hash"]
+	path = functional_hash
+	url = https://github.com/boostorg/functional_hash.git
+[submodule "interprocess"]
+	path = interprocess
+	url = https://github.com/boostorg/interprocess.git
+[submodule "container"]
+	path = container
+	url = https://github.com/boostorg/container.git
+[submodule "tuple"]
+	path = tuple
+	url = https://github.com/boostorg/tuple.git
+[submodule "units"]
+	path = units
+	url = https://github.com/boostorg/units.git
+[submodule "intrusive"]
+	path = intrusive
+	url = https://github.com/boostorg/intrusive.git
+[submodule "any"]
+	path = any
+	url = https://github.com/boostorg/any.git
+[submodule "variant"]
+	path = variant
+	url = https://github.com/boostorg/variant.git
+[submodule "multi_index"]
+	path = multi_index
+	url = https://github.com/boostorg/multi_index.git
+[submodule "parameter"]
+	path = parameter
+	url = https://github.com/boostorg/parameter.git

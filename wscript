@@ -111,73 +111,112 @@ def build(bld):
         # Work around seems to be to add:
         bld.env.DEFINES_BOOST_SHARED += ['_GLIBCXX_USE_C99_STDINT_TR1']
 
-##    # Build boost thread
-##    if bld.is_mkspec_platform('windows'):
-##        bld.stlib(
-##            features = 'cxx',
-##            source   = bld.path.ant_glob('boost-lib/libs/thread/src/win32/*.cpp') +
-##                       bld.path.ant_glob('boost-lib/libs/thread/src/*.cpp'),
-##            target   = 'boost_thread',
-##            includes = ['boost-lib'],
-##            export_includes = ['boost-lib'],
-##            defines  = ['BOOST_THREAD_BUILD_LIB=1'],
-##            use      = 'BOOST_SHARED')
-##    else:
-##        bld.stlib(features = 'cxx',
-##            source   =  bld.path.ant_glob('boost-lib/libs/thread/src/pthread/*.cpp') +
-##                        bld.path.ant_glob('boost-lib/libs/thread/src/*.cpp'),
-##            target   = 'boost_thread',
-##            includes = ['boost-lib'],
-##            export_includes = ['boost-lib'],
-##            defines  = ['BOOST_THREAD_BUILD_LIB=1',
-##                        'BOOST_THREAD_POSIX'],
-##            use      = ['BOOST_PAGESIZE_FIX', 'BOOST_SHARED', 'pthread'])
-##
-##    # Build boost system
-##    bld.stlib(
-##        features = 'cxx',
-##        source   = ['boost-lib/libs/system/src/error_code.cpp'],
-##        target   = 'boost_system',
-##        includes = ['boost-lib'],
-##        export_includes = ['boost-lib'],
-##        defines  = ['BOOST_SYSTEM_STATIC_LINK=1'],
-##        use      = 'BOOST_SHARED')
-##
-##    # Build boost chrono
-##    bld.stlib(
-##        features = 'cxx',
-##        source   = ['boost-lib/libs/chrono/src/chrono.cpp',
-##                    'boost-lib/libs/chrono/src/thread_clock.cpp',
-##                    'boost-lib/libs/chrono/src/process_cpu_clocks.cpp'],
-##        target   = 'boost_chrono',
-##        includes = ['boost-lib'],
-##        export_includes = ['boost-lib'],
-##        defines  = ['BOOST_SYSTEM_STATIC_LINK=1',
-##                    'BOOST_SYSTEM_NO_DEPRECATED'],
-##        use      = ['BOOST_SHARED', 'rt'])
-##
-##    # Build boost timer
-##    bld.stlib(
-##        features = 'cxx',
-##        source   = ['boost-lib/libs/timer/src/auto_timers_construction.cpp',
-##                    'boost-lib/libs/timer/src/cpu_timer.cpp'],
-##        target   = 'boost_timer',
-##        includes = ['boost-lib'],
-##        export_includes = ['boost-lib'],
-##        defines  = ['BOOST_SYSTEM_STATIC_LINK=1',
-##                    'BOOST_SYSTEM_NO_DEPRECATED',
-##                    'BOOST_SYSTEM_STATIC_LINK=1',
-##                    'BOOST_CHRONO_STATIC_LINK=1',
-##                    'BOOST_TIMER_STATIC_LINK=1'],
-##        use      = 'BOOST_SHARED')
+    include_dirs = \
+    [
+    # Dependencies
+        'any/include',
+        'config/include',
+        'container/include',
+        'core/include',
+        'date_time/include',
+        'exception/include',
+        'functional/include',
+        'functional_hash/include',
+        'integer/include',
+        'interprocess/include',
+        'intrusive/include',
+        'io/include',
+        'iterator/include',
+        'math/include',
+        'move/include',
+        'mpl/include',
+        'multi_index/include',
+        'optional/include',
+        'parameter/include',
+        'preprocessor/include',
+        'ratio/include',
+        'units/include',
+        'utility/include',
+        'tuple/include',
+        'variant/include',
+    # Repos used directly
+        'asio/include',
+        'bind/include',
+        'chrono/include',
+        'function/include',
+        'signals2/include',
+        'smart_ptr/include',
+        'static_assert/include',
+        'system/include',
+        'thread/include',
+        'timer/include',
+        'type_traits/include',
+    ]
+
+    # Build boost thread
+    if bld.is_mkspec_platform('windows'):
+        bld.stlib(
+            features = 'cxx',
+            source   = bld.path.ant_glob('thread/src/win32/*.cpp') +
+                       bld.path.ant_glob('thread/src/*.cpp'),
+            target   = 'boost_thread',
+            includes = include_dirs,
+            export_includes = include_dirs,
+            defines  = ['BOOST_THREAD_BUILD_LIB=1'],
+            use      = 'BOOST_SHARED')
+    else:
+        bld.stlib(features = 'cxx',
+            source   =  bld.path.ant_glob('thread/src/pthread/*.cpp') +
+                        bld.path.ant_glob('thread/src/*.cpp'),
+            target   = 'boost_thread',
+            includes = include_dirs,
+            export_includes = include_dirs,
+            defines  = ['BOOST_THREAD_BUILD_LIB=1',
+                        'BOOST_THREAD_POSIX'],
+            use      = ['BOOST_PAGESIZE_FIX', 'BOOST_SHARED', 'pthread'])
+
+    # Build boost system
+    bld.stlib(
+        features = 'cxx',
+        source   = ['system/src/error_code.cpp'],
+        target   = 'boost_system',
+        includes = include_dirs,
+        export_includes = include_dirs,
+        defines  = ['BOOST_SYSTEM_STATIC_LINK=1'],
+        use      = 'BOOST_SHARED')
+
+    # Build boost chrono
+    bld.stlib(
+        features = 'cxx',
+        source   = bld.path.ant_glob('chrono/src/*.cpp'),
+        target   = 'boost_chrono',
+        includes = include_dirs,
+        export_includes = include_dirs,
+        defines  = ['BOOST_SYSTEM_STATIC_LINK=1',
+                    'BOOST_SYSTEM_NO_DEPRECATED'],
+        use      = ['BOOST_SHARED', 'rt'])
+
+    # Build boost timer
+    bld.stlib(
+        features = 'cxx',
+        source   = bld.path.ant_glob('timer/src/*.cpp'),
+        target   = 'boost_timer',
+        includes = include_dirs,
+        export_includes = include_dirs,
+        defines  = ['BOOST_SYSTEM_STATIC_LINK=1',
+                    'BOOST_SYSTEM_NO_DEPRECATED',
+                    'BOOST_SYSTEM_STATIC_LINK=1',
+                    'BOOST_CHRONO_STATIC_LINK=1',
+                    'BOOST_TIMER_STATIC_LINK=1'],
+        use      = 'BOOST_SHARED')
 ##
 ##    # Build boost program options
 ##    bld.stlib(
 ##        features = 'cxx',
 ##        source   = bld.path.ant_glob('boost-lib/libs/program_options/src/*.cpp'),
 ##        target   = 'boost_program_options',
-##        includes = ['boost-lib'],
-##        export_includes = ['boost-lib'],
+##        includes = include_dirs,
+##        export_includes = include_dirs,
 ##        use      = 'BOOST_SHARED')
 ##
 ##    # Build boost program options
@@ -185,22 +224,12 @@ def build(bld):
 ##        features = 'cxx',
 ##        source   = bld.path.ant_glob('boost-lib/libs/filesystem/src/*.cpp'),
 ##        target   = 'boost_filesystem',
-##        includes = ['boost-lib'],
+##        includes = include_dirs,
+##        export_includes = include_dirs,
 ##        defines  = ['BOOST_SYSTEM_STATIC_LINK=1',
 ##                   'BOOST_FILESYSTEM_STATIC_LINK=1'],
-##        export_includes = ['boost-lib'],
 ##        use      = 'BOOST_SHARED')
 
-    include_dirs = \
-    [
-        # Dependencies
-        'config/include',
-        'core/include',
-        'utility/include',
-        'exception/include',
-        # Repos used directly
-        'smart_ptr/include',
-    ]
 
     # Make use flag for apps/libs only using the boost headers
     bld(includes = include_dirs,
