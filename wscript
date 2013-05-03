@@ -114,6 +114,7 @@ def build(bld):
     include_dirs = \
     [
     # Dependencies
+        'algorithm/include',
         'any/include',
         'config/include',
         'container/include',
