@@ -106,3 +106,6 @@
 [submodule "parameter"]
 	path = parameter
 	url = https://github.com/boostorg/parameter.git
+[submodule "algorithm"]
+	path = algorithm
+	url = https://github.com/boostorg/algorithm.git
