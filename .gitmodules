@@ -112,3 +112,6 @@
 [submodule "range"]
 	path = range
 	url = https://github.com/boostorg/range.git
+[submodule "concept_check"]
+	path = concept_check
+	url = https://github.com/boostorg/concept_check.git

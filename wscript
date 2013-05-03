@@ -116,6 +116,7 @@ def build(bld):
     # Dependencies
         'algorithm/include',
         'any/include',
+        'concept_check/include',
         'config/include',
         'container/include',
         'core/include',
