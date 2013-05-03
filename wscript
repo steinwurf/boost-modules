@@ -135,6 +135,7 @@ def build(bld):
         'optional/include',
         'parameter/include',
         'preprocessor/include',
+        'range/include',
         'ratio/include',
         'units/include',
         'utility/include',

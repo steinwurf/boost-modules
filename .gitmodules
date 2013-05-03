@@ -109,3 +109,6 @@
 [submodule "algorithm"]
 	path = algorithm
 	url = https://github.com/boostorg/algorithm.git
+[submodule "range"]
+	path = range
+	url = https://github.com/boostorg/range.git
