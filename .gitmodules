@@ -76,9 +76,6 @@
 [submodule "math"]
 	path = math
 	url = https://github.com/boostorg/math.git
-[submodule "functional_hash"]
-	path = functional_hash
-	url = https://github.com/boostorg/functional_hash.git
 [submodule "interprocess"]
 	path = interprocess
 	url = https://github.com/boostorg/interprocess.git
